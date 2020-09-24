@@ -1,0 +1,51 @@
+---
+title: "Clustering"
+output: html_notebook
+---
+
+
+
+```{r}
+View(ClusterData)
+
+
+colnames(ClusterData)
+```
+
+```{r}
+#Keeping numerical data only
+states<-ClusterData
+```
+```{r}
+st<-states[,3:27]
+rownames(st)<-states[,2]
+colnames(st)
+```
+```{r}
+#Sports search data only
+sports<-st[,8:11]
+head(sports)
+```
+```{r}
+#Clustering
+#Create distance matrix
+d<-dist(st)
+```
+```{r}
+#Hierarchical clustering
+c<-hclust(d)
+c#info on clustering
+```
+```{r}
+#Plot dendogram of clusters
+plot(c,main="Cluster with All Searchers and Personalities")
+```
+
+```{r}
+#Or nest commands in one line for (for sports data)
+plot(hclust(dist(sports)), main="Sports Searches")
+```
+```{r}
+
+```
+
